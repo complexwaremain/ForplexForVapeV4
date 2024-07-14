@@ -8871,8 +8871,6 @@ run(function() -- i dont know why bedwars hasnt patched it but they haven't (lea
 	})
 end)
 
---thank you qwertyui for letting me use
-
 run(function()
     local HannahExploit = {Enabled = false}
     HannahExploit = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
@@ -8908,7 +8906,7 @@ run(function()
 	local playedanim
 	AnimationPlayer = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
 		Name = "Invisibility",
-		HoverText = "UNPATCHED🖕",
+		HoverText = "Credits (Nebula)",
 		Function = function(callback)
 			if callback then 
 				if entityLibrary.isAlive then 
@@ -9007,7 +9005,7 @@ p13:Connect(function(p14)
 		end
 	end)
 end)
--- Kill Player Notification
+
 Client:WaitFor("EntityDeathEvent"):andThen(function(p6)
 p6:Connect(function(p7)
 	if Notify["Enabled"] then
@@ -9025,77 +9023,6 @@ local Notify = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].Creat
 })
 end)
 
-
-
-run(function()
-        local TPHighJump = {Enabled = false}
-
-        local function PerformHighJump()
-            local character = game.Players.LocalPlayer.Character
-            local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
-            
-            if humanoidRootPart then
-                local jumpDistance = TPHighJumpDistance.Value
-                local initialHeight = humanoidRootPart.Position.Y
-                for i = 1, 3 do  
-                    humanoidRootPart.CFrame = CFrame.new(humanoidRootPart.Position + Vector3.new(0, jumpDistance, 0))
-                    wait(0.1) 
-                    
-                    local currentHeight = humanoidRootPart.Position.Y - initialHeight
-                    warningNotification("Forplex", "Currently " .. tostring(currentHeight) .. " studs in the air", 3)
-                end
-            end
-        end
-
-        TPHighJump = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
-            Name = "TPHighJump",
-            Function = function(callback)
-                if callback then
-                    PerformHighJump()
-
-            wait(0.6)
-            TPHighJump.ToggleButton(false)
-
-                end
-            end,
-            HoverText = "x3 the number that you put in height"
-        })
-
-        TPHighJumpDistance = TPHighJump.CreateSlider({
-            Name = "Jump Height (studs)",
-            Min = 1,
-            Max = 350,
-            Default = 50,
-            Function = function(value)
-                TPHighJumpDistance.Value = value
-            end
-        })
-    end)
-
-  
-    
-        
-    run(function()
-        local insta = {Enabled = false}
-        insta = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
-            Name = "4BigGuysExploit",
-            Function = function(callback)
-                if callback then
-                    task.spawn(function()
-                        repeat
-                            task.wait()
-                            game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.HellBladeRelease:FireServer({
-                                ["chargeTime"] = 0.999,
-                                ["player"] = game:GetService("Players").LocalPlayer,
-                                ["weapon"] =game:GetService("ReplicatedStorage").Inventories:FindFirstChild(lplr.Name.."infernal_saber"),
-                            })
-                        until (not insta.Enabled)
-                    end)
-                end
-            end, 
-            HoverText = "🔥ember"
-        })
-    end)
 run(function()
         local TweenService = game:GetService("TweenService")
         local lplr = game.Players.LocalPlayer
@@ -9337,205 +9264,7 @@ run(function()
             HoverText = "he cant do that :rage:"
         })
     end)
---extremely useful module!!
-run(function()
-	local AntiNoclip = {Enabled = false}
-	AntiNoclip = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
-		Name = 'AntiNoclip',
-		HoverText = 'Prevents you from noclipping into the ground when landing from\nInfiniteFly etc. (Prevents being lagbacked using infinitefly)',
-		Function = function(callback)
-			if callback then
-				task.spawn(function()
-					repeat task.wait() until entityLibrary.isAlive
-					repeat 
-						task.wait()
-						if lplr.Character and lplr.Character:FindFirstChild('Humanoid') and lplr.Character.Humanoid.Health > 0 then
-							if lplr.Character.Humanoid.FloorMaterial ~= Enum.Material.Air then
-								local block, pos = getPlacedBlock(lplr.Character.HumanoidRootPart.Position + Vector3.new(0, -3, 0))
-								pos = pos * 3
-								if block and pos then
-									if (pos.Y + 8) >= lplr.Character.PrimaryPart.Position.Y then
-										local velocity = lplr.Character.PrimaryPart.Velocity
-										velocity = Vector2.new(velocity.X, velocity.Z)
-										lplr.Character.PrimaryPart.Velocity = Vector3.new(velocity.X, 0, velocity.Y)
-									end
-								end
-							end
-						end	
-					until not AntiNoclip.Enabled
-				end)
-			end
-		end
-	})
-end)
-
-run(function()
-    local coolpack = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
-        Name = "TexturePack",
-        HoverText = "yes",
-        Function = function(callback)
-            if callback then
-
-				local Players = game:GetService("Players")
-				local ReplicatedStorage = game:GetService("ReplicatedStorage")
-				local Workspace = game:GetService("Workspace")
-				local objs = game:GetObjects("rbxassetid://14654171957")
-				local import = objs[1]
-				import.Parent = ReplicatedStorage
-				local index = {
-					{
-						name = "wood_sword",
-						offset = CFrame.Angles(math.rad(0), math.rad(-89), math.rad(-90)),
-						model = import:WaitForChild("Wood_Sword"),
-					},	
-					{
-						name = "stone_sword",
-						offset = CFrame.Angles(math.rad(0), math.rad(-89), math.rad(-90)),
-						model = import:WaitForChild("Stone_Sword"),
-					},
-					{
-						name = "iron_sword",
-						offset = CFrame.Angles(math.rad(0), math.rad(-89), math.rad(-90)),
-						model = import:WaitForChild("Iron_Sword"),
-					},
-					{
-						name = "diamond_sword",
-						offset = CFrame.Angles(math.rad(0), math.rad(-89), math.rad(-90)),
-						model = import:WaitForChild("Diamond_Sword"),
-					},
-					{
-						name = "rageblade",
-						offset = CFrame.Angles(math.rad(0), math.rad(-89), math.rad(-90)),
-						model = import:WaitForChild("Rageblade"),
-					},
-					{
-						name = "emerald_sword",
-						offset = CFrame.Angles(math.rad(0), math.rad(-89), math.rad(-90)),
-						model = import:WaitForChild("Emerald_Sword"),
-					},
-					{
-						name = "wood_scythe",
-						offset = CFrame.Angles(math.rad(0),math.rad(89),math.rad(-90)),
-						model = import:WaitForChild("Wood_Scythe"),
-					},
-					{
-						name = "stone_scythe",
-						offset = CFrame.Angles(math.rad(0),math.rad(89),math.rad(-90)),
-						model = import:WaitForChild("Stone_Scythe"),
-					},
-					{
-						name = "iron_scythe",
-						offset = CFrame.Angles(math.rad(0),math.rad(89),math.rad(-90)),
-						model = import:WaitForChild("Iron_Scythe"),
-					},
-					{
-						name = "diamond_scythe",
-						offset = CFrame.Angles(math.rad(0),math.rad(89),math.rad(-90)),
-						model = import:WaitForChild("Diamond_Scythe"),
-					},
-					{
-						name = "wood_pickaxe",
-						offset = CFrame.Angles(math.rad(0), math.rad(-10), math.rad(-95)),
-						model = import:WaitForChild("Wood_Pickaxe"),
-					},	
-					{
-						name = "stone_pickaxe",
-						offset = CFrame.Angles(math.rad(0), math.rad(-10), math.rad(-95)),
-						model = import:WaitForChild("Stone_Pickaxe"),
-					},	
-					{
-						name = "iron_pickaxe",
-						offset = CFrame.Angles(math.rad(0), math.rad(-10), math.rad(-95)),
-						model = import:WaitForChild("Iron_Pickaxe"),
-					},	
-					{
-						name = "diamond_pickaxe",
-						offset = CFrame.Angles(math.rad(0), math.rad(-89), math.rad(-95)),
-						model = import:WaitForChild("Diamond_Pickaxe"),
-					},
-					{
-						name = "diamond",
-						offset = CFrame.Angles(math.rad(0), math.rad(-90), math.rad(90)),
-						model = import:WaitForChild("Diamond"),
-					},
-					{
-						name = "iron",
-						offset = CFrame.Angles(math.rad(0), math.rad(-90), math.rad(90)),
-						model = import:WaitForChild("Iron"),
-					},
-					{
-						name = "emerald",
-						offset = CFrame.Angles(math.rad(0), math.rad(-90), math.rad(90)),
-						model = import:WaitForChild("Emerald"),
-					},
-}
-				local func = Workspace.Camera.Viewmodel.ChildAdded:Connect(function(tool)	
-					if not tool:IsA("Accessory") then return end	
-					for _, v in ipairs(index) do	
-						if v.name == tool.Name then		
-							for _, part in ipairs(tool:GetDescendants()) do
-								if part:IsA("BasePart") or part:IsA("MeshPart") or part:IsA("UnionOperation") then				
-									part.Transparency = 1
-								end			
-							end		
-							local model = v.model:Clone()
-							model.CFrame = tool:WaitForChild("Handle").CFrame * v.offset
-							model.CFrame *= CFrame.Angles(math.rad(0), math.rad(-50), math.rad(0))
-							model.Parent = tool			
-							local weld = Instance.new("WeldConstraint", model)
-							weld.Part0 = model
-							weld.Part1 = tool:WaitForChild("Handle")			
-							local tool2 = Players.LocalPlayer.Character:WaitForChild(tool.Name)			
-							for _, part in ipairs(tool2:GetDescendants()) do
-								if part:IsA("BasePart") or part:IsA("MeshPart") or part:IsA("UnionOperation") then				
-									part.Transparency = 1				
-								end			
-							end			
-							local model2 = v.model:Clone()
-							model2.Anchored = false
-							model2.CFrame = tool2:WaitForChild("Handle").CFrame * v.offset
-							model2.CFrame *= CFrame.Angles(math.rad(0), math.rad(-50), math.rad(0))
-							if v.name:match("rageblade") then
-								model2.CFrame *= CFrame.new(0.7, 0, -1)                           
-							elseif v.name:match("sword") or v.name:match("blade") then
-								model2.CFrame *= CFrame.new(.6, 0, -1.1) - Vector3.new(0, 0, -.3)
-							elseif v.name:match("axe") and not v.name:match("pickaxe") and v.name:match("diamond") then
-								model2.CFrame *= CFrame.new(.08, 0, -1.1) - Vector3.new(0, 0, -1.1)
-							elseif v.name:match("axe") and not v.name:match("pickaxe") and not v.name:match("diamond") then
-								model2.CFrame *= CFrame.new(-.2, 0, -2.4) + Vector3.new(0, 0, 2.12)
-							elseif v.name:match("scythe") then
-								model2.CFrame *= CFrame.new(-1.15, 0.2, -2.1)
-							elseif v.name:match("iron") then
-								model2.CFrame *= CFrame.new(0, -.24, 0)
-							elseif v.name:match("gold") then
-								model2.CFrame *= CFrame.new(0, .03, 0)
-							elseif v.name:match("diamond") then
-								model2.CFrame *= CFrame.new(0, .027, 0)
-							elseif v.name:match("emerald") then
-								model2.CFrame *= CFrame.new(0, .001, 0)
-							elseif v.name:match("telepearl") then
-								model2.CFrame *= CFrame.new(.1, 0, .1)
-							elseif v.name:match("bow") and not v.name:match("crossbow") then
-								model2.CFrame *= CFrame.new(-.29, .1, -.2)
-							elseif v.name:match("wood_crossbow") and not v.name:match("tactical_crossbow") then
-								model2.CFrame *= CFrame.new(-.6, 0, 0)
-							elseif v.name:match("tactical_crossbow") and not v.name:match("wood_crossbow") then
-								model2.CFrame *= CFrame.new(-.5, 0, -1.2)
-							else
-								model2.CFrame *= CFrame.new(.2, 0, -.2)
-							end
-							model2.Parent = tool2
-							local weld2 = Instance.new("WeldConstraint", model)
-							weld2.Part0 = model2
-							weld2.Part1 = tool2:WaitForChild("Handle")
-						end
-					end
-				end)          
-			end
-        end
-	})
-end)
-																																																																																																																																																																																																																																											
+																																																																																																																																																																																																																																	
  run(function()
     local JellyfishExploit = {Enabled = false}
 
@@ -9554,7 +9283,7 @@ end)
                 end)
             end
         end, 
-        HovorText = "Requires Marina kit to use"
+        HovorText = "Requires Marina kit to use (Credits Nebula)"
     })
 end)   
 run(function()
@@ -9590,7 +9319,7 @@ run(function()
 	local hasnt_upgraded_everything = true
 	local testing = 1
 	AdetundeExploit = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
-		Name = 'AdetundeExploit',
+		Name = 'GodMode',
 		Function = function(calling)
 			if calling then 
 				--if tostring(store.queueType) == "training_room" or store.equippedKit == "adetunde" then
@@ -9651,235 +9380,11 @@ run(function()
 		Default = "Shield"
 	})
 end)
-
-
-
-run(function()
-	local function getfontenums()
-		local fonts = {}
-		for i,v in next, (Enum.Font:GetEnumItems()) do 
-			table.insert(fonts, v.Name) 
-		end
-		return fonts
-	end
-	local function getrandomvalue(tab)
-		return #tab > 0 and tab[math.random(1, #tab)] or ''
-	end
-	local HealthbarMods = {Enabled = false}
-	local HealthbarRound = {Enabled = false}
-	local HealthbarColorToggle = {Enabled = false}
-	local HealthbarTextToggle = {Enabled = false}
-	local HealthbarFontToggle = {Enabled = false}
-	local HealthbarTextColorToggle = {Enabled = false}
-	local HealthbarBackgroundToggle = {Enabled = false}
-	local HealthbarText = {ObjectList = {}}
-	local HealthbarFont = {value = 'LuckiestGuy'}
-	local HealthbarColor = {Hue = 0, Sat = 0, Value = 0}
-	local HealthbarBackground = {Hue = 0, Sat = 0, Value = 0}
-	local HealthbarTextColor = {Hue = 0, Sat = 0, Value = 0}
-	local healthbarobjects = {}
-	local oldhealthbar
-	local textconnection
-	local function healthbarFunction()
-		if not HealthbarMods.Enabled then 
-			return 
-		end
-		local healthbar = ({pcall(function() return lplr.PlayerGui.hotbar['1'].HotbarHealthbarContainer.HealthbarProgressWrapper['1'] end)})[2]
-		if healthbar and type(healthbar) == 'userdata' then 
-			oldhealthbar = healthbar
-			healthbar.BackgroundColor3 = HealthbarColorToggle.Enabled and Color3.fromHSV(HealthbarColor.Hue, HealthbarColor.Sat, HealthbarColor.Value) or healthbar.BackgroundColor3
-			for i,v in next, (healthbar.Parent:GetChildren()) do 
-				if v:IsA('Frame') and v:FindFirstChildWhichIsA('UICorner') == nil and HealthbarRound.Enabled then 
-					table.insert(healthbarobjects, Instance.new('UICorner', v))
-				end
-			end
-			local healthbarbackground = ({pcall(function() return healthbar.Parent.Parent end)})[2]
-			if healthbarbackground and type(healthbarbackground) == 'userdata' then
-				if healthbar.Parent.Parent:FindFirstChildWhichIsA('UICorner') == nil and HealthbarRound.Enabled then 
-					table.insert(healthbarobjects, Instance.new('UICorner', healthbar.Parent.Parent))
-				end 
-				if HealthbarBackgroundToggle.Enabled then
-					healthbarbackground.BackgroundColor3 = Color3.fromHSV(HealthbarBackground.Hue, HealthbarBackground.Sat, HealthbarBackground.Value)
-				end
-			end
-			local healthbartext = ({pcall(function() return healthbar.Parent.Parent['1'] end)})[2]
-			if healthbartext and type(healthbartext) == 'userdata' then 
-				local randomtext = getrandomvalue(HealthbarText.ObjectList)
-				if HealthbarTextColorToggle.Enabled then
-					healthbartext.TextColor3 = Color3.fromHSV(HealthbarTextColor.Hue, HealthbarTextColor.Sat, HealthbarTextColor.Value)
-				end
-				if HealthbarFontToggle.Enabled then 
-					healthbartext.Font = Enum.Font[HealthbarFont.Value]
-				end
-				if randomtext ~= '' and HealthbarTextToggle.Enabled then 
-					healthbartext.Text = randomtext:gsub('<health>', entityLibrary.isAlive and tostring(math.floor(lplr.Character:GetAttribute('Health') or 0)) or '0')
-				else
-					pcall(function() healthbartext.Text = tostring(lplr.Character:GetAttribute('Health')) end)
-				end
-				if not textconnection then 
-					textconnection = healthbartext:GetPropertyChangedSignal('Text'):Connect(function()
-						local randomtext = getrandomvalue(HealthbarText.ObjectList)
-						if randomtext ~= '' then 
-							healthbartext.Text = randomtext:gsub('<health>', isAlive() and tostring(math.floor(lplr.Character:GetAttribute('Health') or 0)) or '0')
-						else
-							pcall(function() healthbartext.Text = tostring(math.floor(lplr.Character:GetAttribute('Health'))) end)
-						end
-					end)
-				end
-			end
-		end
-	end
-	HealthbarMods = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
-		Name = 'HealthbarMods',
-		HoverText = 'Customize the color of your healthbar.\nAdd \'<health>\' to your custom text dropdown (if custom text enabled)to insert your health.',
-		Function = function(callback)
-			if callback then 
-				task.spawn(function()
-					table.insert(HealthbarMods.Connections, lplr.PlayerGui.DescendantAdded:Connect(function(v)
-						if v.Name == 'HotbarHealthbarContainer' and v.Parent and v.Parent.Parent and v.Parent.Parent.Name == 'hotbar' then
-							healthbarFunction()
-						end
-					end))
-					healthbarFunction()
-				end)
-			else
-				pcall(function() textconnection:Disconnect() end)
-				pcall(function() oldhealthbar.Parent.Parent.BackgroundColor3 = Color3.fromRGB(41, 51, 65) end)
-				pcall(function() oldhealthbar.BackgroundColor3 = Color3.fromRGB(203, 54, 36) end)
-				pcall(function() oldhealthbar.Parent.Parent['1'].Text = tostring(lplr.Character:GetAttribute('Health')) end)
-				pcall(function() oldhealthbar.Parent.Parent['1'].TextColor3 = Color3.fromRGB(255, 255, 255) end)
-				pcall(function() oldhealthbar.Parent.Parent['1'].Font = Enum.Font.LuckiestGuy end)
-				oldhealthbar = nil
-				textconnection = nil
-				for i,v in next, (healthbarobjects) do 
-					pcall(function() v:Destroy() end)
-				end
-				table.clear(healthbarobjects)
-			end
-		end
-	})
-	HealthbarColorToggle = HealthbarMods.CreateToggle({
-		Name = 'Main Color',
-		Default = true,
-		Function = function(callback)
-			pcall(function() HealthbarColor.Object.Visible = callback end)
-			if HealthbarMods.Enabled then
-				HealthbarMods.ToggleButton(false)
-				HealthbarMods.ToggleButton(false)
-			end
-		end 
-	})
-	HealthbarColor = HealthbarMods.CreateColorSlider({
-		Name = 'Main Color',
-		Function = function()
-			task.spawn(healthbarFunction)
-		end
-	})
-	HealthbarBackgroundToggle = HealthbarMods.CreateToggle({
-		Name = 'Background Color',
-		Function = function(callback)
-			pcall(function() HealthbarBackground.Object.Visible = callback end)
-			if HealthbarMods.Enabled then
-				HealthbarMods.ToggleButton(false)
-				HealthbarMods.ToggleButton(false)
-			end
-		end 
-	})
-	HealthbarBackground = HealthbarMods.CreateColorSlider({
-		Name = 'Background Color',
-		Function = function() 
-			task.spawn(healthbarFunction)
-		end
-	})
-	HealthbarTextToggle = HealthbarMods.CreateToggle({
-		Name = 'Text',
-		Function = function(callback)
-			pcall(function() HealthbarText.Object.Visible = callback end)
-			if HealthbarMods.Enabled then
-				HealthbarMods.ToggleButton(false)
-				HealthbarMods.ToggleButton(false)
-			end
-		end 
-	})
-	HealthbarText = HealthbarMods.CreateTextList({
-		Name = 'Text',
-		TempText = 'Healthbar Text',
-		AddFunction = function()
-			if HealthbarMods.Enabled then
-				HealthbarMods.ToggleButton(false)
-				HealthbarMods.ToggleButton(false)
-			end
-		end,
-		RemoveFunction = function()
-			if HealthbarMods.Enabled then
-				HealthbarMods.ToggleButton(false)
-				HealthbarMods.ToggleButton(false)
-			end
-		end
-	})
-	HealthbarTextColorToggle = HealthbarMods.CreateToggle({
-		Name = 'Text Color',
-		Function = function(callback)
-			pcall(function() HealthbarTextColor.Object.Visible = callback end)
-			if HealthbarMods.Enabled then
-				HealthbarMods.ToggleButton(false)
-				HealthbarMods.ToggleButton(false)
-			end
-		end 
-	})
-	HealthbarTextColor = HealthbarMods.CreateColorSlider({
-		Name = 'Text Color',
-		Function = function() 
-			task.spawn(healthbarFunction)
-		end
-	})
-	HealthbarFontToggle = HealthbarMods.CreateToggle({
-		Name = 'Text Font',
-		Function = function(callback)
-			pcall(function() HealthbarFont.Object.Visible = callback end)
-			if HealthbarMods.Enabled then
-				HealthbarMods.ToggleButton(false)
-				HealthbarMods.ToggleButton(false)
-			end
-		end 
-	})
-	HealthbarFont = HealthbarMods.CreateDropdown({
-		Name = 'Text Font',
-		List = getfontenums(),
-		Function = function(callback)
-			if HealthbarMods.Enabled then
-				HealthbarMods.ToggleButton(false)
-				HealthbarMods.ToggleButton(false)
-			end
-		end
-	})
-	HealthbarRound = HealthbarMods.CreateToggle({
-		Name = 'Round',
-		Function = function() 
-			if HealthbarMods.Enabled then
-				HealthbarMods.ToggleButton(false)
-				HealthbarMods.ToggleButton(false)
-			end
-		end
-	})
-	HealthbarBackground.Object.Visible = false
-	HealthbarText.Object.Visible = false
-	HealthbarTextColor.Object.Visible = false
-	HealthbarFont.Object.Visible = false
-end)
-function IsAlive(plr)
-    plr = plr or lplr
-    if not plr.Character then return false end
-    if not plr.Character:FindFirstChild("Head") then return false end
-    if not plr.Character:FindFirstChild("Humanoid") then return false end
-    if plr.Character:FindFirstChild("Humanoid").Health < 0.11 then return false end
-    return true
-end
-
+    
 run(function()
     local GodMode = {Enabled = false}
     GodMode = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
-        Name = "Funny AntiHit🤑",
+        Name = "Nebula Antihit",
         Function = function(callback)
             if callback then
 				spawn(function()
@@ -10371,7 +9876,7 @@ run(function()
 }
 
 Atmosphere = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
-		Name = 'Ambience',
+		Name = 'LightingAmbience',
 		ExtraText = function()
 			return AtmosphereMethod.Value ~= 'Default' and AtmosphereMethod.Value or ''
 		end,
@@ -10595,7 +10100,7 @@ run(function()
     local AntiDeath = {Enabled = false}
     local HealthValue = {Value = 50}
     local YValue = {Value = 650}
-    local ActionPerformed = false -- Add a flag to track if the action has been performed
+    local ActionPerformed = false
 
     local player = game.Players.LocalPlayer
     local character = player.Character
@@ -10605,13 +10110,13 @@ run(function()
     local function PerformAction()
         if character and humanoidRootPart and humanoid and not ActionPerformed then
             humanoidRootPart.Velocity = Vector3.new(0, YValue.Value, 0)
-            ActionPerformed = true -- Set the flag to true to indicate that the action has been performed
+            ActionPerformed = true
         end
     end
 
     AntiDeath = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
         Name = "AntiDeath",
-        HoverText = "Won't make you die (promise)",
+        HoverText = "Won't make you die (no promises)",
         Function = function(callback)
 			if callback then
             	if AntiDeath.Enabled and humanoid.Health <= HealthValue.Value then
