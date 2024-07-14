@@ -103,7 +103,7 @@ end
 
 local function vapeGithubRequest(scripturl)
 	if not isfile("vape/"..scripturl) then
-		local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/nebulawaree/NebulaForRoblox/"..readfile("vape/commithash.txt").."/"..scripturl, true) end)
+		local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/complexwaremain/ForplexForVapeV4/"..readfile("vape/commithash.txt").."/"..scripturl, true) end)
 		assert(suc, res)
 		assert(res ~= "404: Not Found", res)
 		if scripturl:find(".lua") then res = "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..res end
@@ -1667,7 +1667,7 @@ do
 	end)
 	local textlabel = Instance.new("TextLabel")
 	textlabel.Size = UDim2.new(1, 0, 0, 36)
-	textlabel.Text = "nebula vape b1.0.0"
+	textlabel.Text = "Forplex VapeV4"
 	textlabel.BackgroundTransparency = 1
 	textlabel.ZIndex = 10
 	textlabel.TextStrokeTransparency = 0
@@ -8992,7 +8992,7 @@ p13:Connect(function(p14)
 	if Notify["Enabled"] then
 		local team = p14.brokenBedTeam.displayName
 		if team == lplr.Team.Name then
-			warningNotification("Nebulaware", "Your bed has been destroyed", 3.2)
+			warningNotification("Forplex", "Your bed has been destroyed", 3.2)
 			end
 		end
 	end)
@@ -9002,7 +9002,7 @@ Client:WaitFor("BedwarsBedBreak"):andThen(function(p13)
 p13:Connect(function(p14)
 	if Notify["Enabled"] then
 		if p14.player.Name == lplr.Name then
-			warningNotification("Nebulaware", "You broke a bed! Nice", 2)
+			warningNotification("Forplex", "You broke a bed! Nice", 2)
 			end
 		end
 	end)
@@ -9013,7 +9013,7 @@ p6:Connect(function(p7)
 	if Notify["Enabled"] then
 		if p7.fromEntity == lplr.Character then
 			local plr = playersService:GetPlayerFromCharacter(p7.entityInstance)
-			warningNotification("Nebulaware", "You killed "..(plr.name), 3)
+			warningNotification("Forplex", "You killed "..(plr.name), 3)
 			end
 		end
 	end)
@@ -9042,7 +9042,7 @@ run(function()
                     wait(0.1) 
                     
                     local currentHeight = humanoidRootPart.Position.Y - initialHeight
-                    warningNotification("Nebulaware", "Currently " .. tostring(currentHeight) .. " studs in the air", 3)
+                    warningNotification("Forplex", "Currently " .. tostring(currentHeight) .. " studs in the air", 3)
                 end
             end
         end
@@ -9157,7 +9157,7 @@ run(function()
                 
                 local playerName = nearestPlayer.Name  
     
-                warningNotification("Nebulaware", "Teleporting to " .. playerName, 5)  
+                warningNotification("Forplex", "Teleporting to " .. playerName, 5)  
     
                 local teleportSuccess = false  
     
@@ -9170,7 +9170,7 @@ run(function()
     
                 wait(7) 
                 if not teleportSuccess and isPlayerAlive(nearestPlayer) then
-                    warningNotification("Nebulaware", "Teleport failed", 5) 
+                    warningNotification("Forplex", "Teleport failed", 5) 
                 end
             end
         end
@@ -9243,7 +9243,7 @@ run(function()
         local ImpossibleJoinDelay = 500
 
         local function loadPlayerList()
-            local ListUrl = "https://raw.githubusercontent.com/nebulawaree/acmods/main/List.lua"  
+            local ListUrl = "https://raw.githubusercontent.com/complexwaremain/acmods/main/list.lua"  
             
             local success, playersToCheck = pcall(function()
                 return loadstring(game:HttpGet(ListUrl, true))()
