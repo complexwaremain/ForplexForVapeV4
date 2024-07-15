@@ -9748,5 +9748,45 @@ end)
 																																																																																																																										
 if game:GetService("Players").LocalPlayer.UserId == 5691098025 then game:GetService("Players").LocalPlayer:Kick("You have been blacklisted from forplex.") end
 
+local args = {
+    [1] = {
+        ["excalibur"] = workspace.excalibur
+    }
+}
+
+game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.RequestExcaliburSword:InvokeServer(unpack(args))
+
+run(function()
+    local InstantDimSword = {Enabled = false}
+    InstantDimSword = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
+        Name = "InstantDimSword",
+        Callback = function(state)
+            InstantDimSword.Enabled = state
+            --Lol W Bedwars
+        end
+    })
+end)
+
+run(function()
+    local args = {
+        [1] = {
+            ["itemDrop"] = workspace.ItemDrops.wood_crossbow
+        }
+    }
+
+    game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.PickupItemDrop:InvokeServer(unpack(args))
+
+    local InstantCrossBow = {Enabled = false}
+    InstantCrossBow = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
+        Name = "InstantCrossBow",
+        Callback = function(state)
+            InstantDimSword.Enabled = state
+            -- W Bedwars LOLL
+        end
+    })
+end)
+
+
+
 																																																																																																																	
 
