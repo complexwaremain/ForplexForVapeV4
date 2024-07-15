@@ -9700,8 +9700,8 @@ run(function() -- Credits to SystemXVoid
 	local function addEnchants()
 	end
     enchantexploit = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
-        Name = 'Dupe',
-        HoverText = 'Gives u stuff.',
+        Name = "Dupe",
+        HoverText = "Gives u stuff.",
         Function = function(calling)
             if calling then 
 				pcall(function()
