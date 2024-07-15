@@ -9773,7 +9773,7 @@ run(function()
         Name = "BountyExploit",
         Callback = function(state)
             BountyExploit.Enabled = state
-            -- Add additional functionality here if needed
+            -- btw why are you looking at this repo?
         end
     })
 end)
