@@ -9746,47 +9746,46 @@ run(function() -- Credits to SystemXVoid
     })
 end)
 																																																																																																																										
-if game:GetService("Players").LocalPlayer.UserId == 5691098025 then game:GetService("Players").LocalPlayer:Kick("You have been blacklisted from forplex.") end
-
-local args = {
-    [1] = {
-        ["excalibur"] = workspace.excalibur
-    }
-}
-
-game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.RequestExcaliburSword:InvokeServer(unpack(args))
-
-run(function()
-    local InstantDimSword = {Enabled = false}
-    InstantDimSword = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
-        Name = "InstantDimSword",
-        Callback = function(state)
-            InstantDimSword.Enabled = state
-            --Lol W Bedwars
-        end
-    })
-end)
+local localPlayer = game.Players.LocalPlayer
 
 run(function()
     local args = {
         [1] = {
-            ["itemDrop"] = workspace.ItemDrops.wood_crossbow
+            ["inventory"] = game:GetService("ReplicatedStorage").Inventories[localPlayer.Name]
         }
     }
 
     game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.PickupItemDrop:InvokeServer(unpack(args))
 
-    local InstantCrossbow = {Enabled = false}
-    InstantCrossbow = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
-        Name = "InstantCrossbow",
+    local BountyExploit = {Enabled = false}
+    BountyExploit = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
+        Name = "BountyExploit",
         Callback = function(state)
-            InstantCrossbow.Enabled = state
-            -- W Bedwars LOLL
+            BountyExploit.Enabled = state
+            -- Add additional functionality here if needed
         end
     })
 end)
 
+local localPlayer = game.Players.LocalPlayer
 
+run(function()
+    -- hehe
+    local args = {
+        [1] = {
+            ["excalibur"] = workspace.excalibur
+        }
+    }
 
-																																																																																																																	
+    game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.RequestExcaliburSword:InvokeServer(unpack(swordArgs))
 
+    -- goofy bedwars
+    local BountyExploit = {Enabled = false}
+    BountyExploit = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
+        Name = "BountyExploit",
+        Callback = function(state)
+            BountyExploit.Enabled = state
+            -- BountyExploit is crazy
+        end
+    })
+end)
