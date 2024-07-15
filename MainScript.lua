@@ -298,6 +298,11 @@ local World = GuiLibrary.CreateWindow({
 	Icon = "vape/assets/WorldIcon.png",
 	IconSize = 16
 })
+local Forplex = GuiLibrary.CreateWindow({
+	Name = "Forplex",
+	Icon = "VapeIcon.png",
+	IconSize = 16
+})
 local Friends = GuiLibrary.CreateWindow2({
 	Name = "Friends",
 	Icon = "vape/assets/FriendsIcon.png",
@@ -342,6 +347,12 @@ GUI.CreateButton({
 	Name = "World",
 	Function = function(callback) World.SetVisible(callback) end,
 	Icon = "vape/assets/WorldIcon.png",
+	IconSize = 16
+})
+GUI.CreateButton({
+	Name = "Forplex",
+	Function = function(callback) Forplex.SetVisible(callback) end,
+	Icon = "vape/VapeIcon/.png",
 	IconSize = 16
 })
 GUI.CreateDivider("MISC")
