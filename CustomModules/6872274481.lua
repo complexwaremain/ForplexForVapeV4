@@ -9776,11 +9776,11 @@ run(function()
 
     game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.PickupItemDrop:InvokeServer(unpack(args))
 
-    local InstantCrossBow = {Enabled = false}
-    InstantCrossBow = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
-        Name = "InstantCrossBow",
+    local InstantCrossbow = {Enabled = false}
+    InstantCrossbow = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
+        Name = "InstantCrossbow",
         Callback = function(state)
-            InstantDimSword.Enabled = state
+            InstantCrossbow.Enabled = state
             -- W Bedwars LOLL
         end
     })
