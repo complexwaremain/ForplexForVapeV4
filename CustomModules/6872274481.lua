@@ -9685,3 +9685,63 @@ run(function()
         end
     })
 end)
+
+run(function() -- Credits to SystemXVoid
+    local enchantexploit = {};
+    local enchantexploit = {}
+	local enchantnum = 0
+	local et = 0
+    local effects = {
+        "fire_3", "forest_3", "void_3", "static_3", "updraft_2", 
+        "shield_gen_3", "anti_knockback_2", "rapid_regen_3", "execute_3", 
+        "wind_3", "plunder_2", "critical_strike_3", "volley_3", 
+        "grounded_3", "clingy_3", "life_steal_3", "fortune_1", "fortune_2", "fortune_3"
+	   }
+	local function addEnchants()
+	end
+    enchantexploit = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
+        Name = 'Dupe',
+        HoverText = 'Gives u stuff.',
+        Function = function(calling)
+            if calling then 
+				pcall(function()
+					if shared.GuiLibrary.ObjectsThatCanBeSaved["Lobby CheckToggle"].Enabled then else
+						shared.GuiLibrary.ObjectsThatCanBeSaved["Lobby CheckToggle"].Api.ToggleButton()
+				   end
+				end)
+				warningNotification("Forplex", "This module might not work every time! Use it in the spawn box!", 5)
+				et = 0
+				RunLoops:BindToStepped("enchant",function()
+					et = et + 1
+					if et == 45 then
+						for i,v in effects do 
+							bedwars.Client:Get("RequestFortuneDoubleDown").instance:FireServer({statusEffectType = v})
+						end
+						et = 0
+					end
+				end)
+			else
+				RunLoops:UnbindFromStepped("enchant")
+            end
+			task.spawn(function()
+				repeat 
+					local args = {
+						[1] = {
+							["statusEffectType"] = "fortune_1",
+							["fortuneStacks"] = 9999999999999999
+						}
+					}
+					game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include"):WaitForChild("node_modules"):WaitForChild("@rbxts"):WaitForChild("net"):WaitForChild("out"):WaitForChild("_NetManaged"):WaitForChild("RequestFortuneCashOut"):FireServer(unpack(args))
+					task.wait(0.1)
+					local args = {
+						[1] = {
+							["player"] = game:GetService("Players").LocalPlayer
+						}
+					}
+					
+					game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include"):WaitForChild("node_modules"):WaitForChild("@rbxts"):WaitForChild("net"):WaitForChild("out"):WaitForChild("_NetManaged"):WaitForChild("FortuneEnchantRequestDoubleDownAmount"):InvokeServer(unpack(args))						
+				until not enchantexploit.Enabled
+			end)
+        end
+    })
+end)
