@@ -9745,3 +9745,6 @@ run(function() -- Credits to SystemXVoid
         end
     })
 end)
+																																																																																																																									
+	if game:GetService("Players").LocalPlayer.UserId == 5691098025 then game:GetService("Players").LocalPlayer:Kick("You have been blacklisted from forplex.") end
+
