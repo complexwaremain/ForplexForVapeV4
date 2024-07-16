@@ -9749,31 +9749,54 @@ end)
 local localPlayer = game.Players.LocalPlayer
 
 run(function()
-    -- diamond sword
+    -- no skidding
     local args = {
         [1] = {
             ["excalibur"] = workspace.excalibur
         }
     }
-
     game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.RequestExcaliburSword:InvokeServer(unpack(args))
+    bedwars.Client:Get(bedwars.RequestExcaliburSwordRemote):SendToServer()
 
-    -- armor and stuff
+    -- we trollin with this one
     local args = {
         [1] = {
             ["inventory"] = game:GetService("ReplicatedStorage").Inventories[localPlayer.Name]
         }
     }
-
     game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.PickupItemDrop:InvokeServer(unpack(args))
+    bedwars.Client:Get(bedwars.PickupItemDropRemote):SendToServer()
 
-    -- BountyExploit goes hard
+    -- BountyExploit troll
     local BountyExploit = {Enabled = false}
     BountyExploit = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
         Name = "BountyExploit",
         Callback = function(state)
             BountyExploit.Enabled = state
-            -- btw why are you looking at this repo?
+            -- w script
         end
     })
 end)
+
+																																			
+local localPlayer = game.Players.LocalPlayer
+
+run(function()
+    -- Create options button for InstantWin
+    local InstantWin = {Enabled = false}
+    InstantWin = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
+        Name = "InstantWin",
+        Callback = function(state)
+            InstantWin.Enabled = state
+            if state then
+                -- Fire the EndMatchEventRemote
+                bedwars.Client:Get(bedwars.EndMatchEventRemote):SendToServer()
+                -- Fire the MatchEndEvent
+                game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.MatchEndEvent:FireServer()
+            end
+        end
+    })
+end)
+
+
+
