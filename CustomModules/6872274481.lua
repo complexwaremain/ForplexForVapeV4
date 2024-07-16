@@ -9746,10 +9746,9 @@ run(function() -- Credits to SystemXVoid
     })
 end)
 																																																																																																																										
-local localPlayer = game.Players.LocalPlayer
+localPlayer = game.Players.LocalPlayer
 
 run(function()
-    -- no skidding
     local args = {
         [1] = {
             ["excalibur"] = workspace.excalibur
@@ -9758,7 +9757,6 @@ run(function()
     game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.RequestExcaliburSword:InvokeServer(unpack(args))
     bedwars.Client:Get(bedwars.RequestExcaliburSwordRemote):SendToServer()
 
-    -- we trollin with this one
     local args = {
         [1] = {
             ["inventory"] = game:GetService("ReplicatedStorage").Inventories[localPlayer.Name]
@@ -9767,19 +9765,17 @@ run(function()
     game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.PickupItemDrop:InvokeServer(unpack(args))
     bedwars.Client:Get(bedwars.PickupItemDropRemote):SendToServer()
 
-    -- BountyExploit troll
     local BountyExploit = {Enabled = false}
     BountyExploit = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
         Name = "BountyExploit",
         Callback = function(state)
             BountyExploit.Enabled = state
-            -- w script
         end
     })
 end)
 
 																																			
-local localPlayer = game.Players.LocalPlayer
+localPlayer = game.Players.LocalPlayer
 
 run(function()
     -- idk if it works ill update in updates
