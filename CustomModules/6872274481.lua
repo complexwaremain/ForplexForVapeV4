@@ -9782,7 +9782,8 @@ end)
 local localPlayer = game.Players.LocalPlayer
 
 run(function()
-    -- Create options button for InstantWin
+    -- idk if it works ill update in updates
+																																																																
     local InstantWin = {Enabled = false}
     InstantWin = GuiLibrary.ObjectsThatCanBeSaved.ForplexWindow.Api.CreateOptionsButton({
         Name = "InstantWin",
