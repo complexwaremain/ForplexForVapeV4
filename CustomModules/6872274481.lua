@@ -9789,9 +9789,9 @@ run(function()
         Callback = function(state)
             InstantWin.Enabled = state
             if state then
-                -- Fire the EndMatchEventRemote
-                bedwars.Client:Get(bedwars.EndMatchEventRemote):SendToServer()
-                -- Fire the MatchEndEvent
+                -- why do i always use this thing
+                bedwars.Client:Get(bedwars.MatchEndEventRemote):SendToServer()
+                -- w script
                 game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.MatchEndEvent:FireServer()
             end
         end
